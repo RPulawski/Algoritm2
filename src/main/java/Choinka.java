@@ -7,7 +7,11 @@ public class Choinka {
         System.out.println();
         printThirdTree();
         System.out.println();
-        //printSkos();
+        printSkos(6);
+        System.out.println();
+        //printO;
+        System.out.println();
+        printX(6);
     }
 
 
@@ -51,16 +55,40 @@ public class Choinka {
         }
     }
 
-    private static void printSkos() {
-        int[][] tab = new int[6][6];
-        for (int i = 0; i <= 5; i++) {
-            for (int j = 0; j <= 5; j++) {
-                if (i == j) {
-                    tab[i][j] = 1;
-                    System.out.print(tab[i][j]);
+
+    private static void printSkos(int number){
+        int front = 0;
+        for (int i = 0; i < number; i++) {
+            String line = "";
+            for (int j = 0; j < number; j++) {
+                if (j == front) {
+                    line += "*";
+                } else {
+                    line += " ";
                 }
-                System.out.println();
             }
+            front++;
+            System.out.println(line);
         }
+    }
+
+    private static void printX(int number) {
+        int front = 0, back = number - 1;
+        for (int i = 0; i < number; i++) {
+            String line = "";
+            for (int j = 0; j < number; j++) {
+                if (j == front || j == back) {
+                    line += "*";
+                }
+                else {
+                    line += " ";
+                }
+            }
+            front++;
+            back--;
+            System.out.println(line);
+        }
+
+
     }
 }
