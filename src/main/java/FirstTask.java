@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class FirstTask {
     public static void main(String[] args) {
         System.out.println("Podaj liczbe z przedzialu 1 do 100000: ");
-        //Scanner liczba = new Scanner(System.in);
-        int liczba = 5;
+        Scanner scanner = new Scanner(System.in);
+        int liczba = scanner.nextInt();
         System.out.println(checkIfNumberIsFirst(liczba));
     }
 
