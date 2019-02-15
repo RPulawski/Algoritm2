@@ -1,67 +1,86 @@
 public class Choinka {
 
     public static void main(String[] args) {
-        printFirstTree();
+        printFirstTree(6);
         System.out.println();
-        printSecondTree();
+        printSecondTree(6);
         System.out.println();
-        printThirdTree();
+        printThirdTree(6);
+        System.out.println();
+        printFourthTree(6);
         System.out.println();
         printSkos(6);
         System.out.println();
-        //printO;
+        printO(6);
         System.out.println();
         printX(6);
     }
 
 
-    private static void printFirstTree() {
-        int[][] tab = new int[6][6];
-        for (int i = 0; i <= 5; i++) {
-            for (int j = 0; j <= 5; j++) {
-                if (i >= j) {
-                    tab[i][j] = 1;
-                    System.out.print(tab[i][j]);
-                }
-            }
-            System.out.println();
-        }
-    }
-
-    private static void printSecondTree() {
-        int[][] tab = new int[6][6];
-        for (int i = 5; i >= 0; i--) {
-            for (int j = 5; j >= 0; j--) {
-                if (i >= j) {
-                    tab[i][j] = 1;
-                    System.out.print(tab[i][j]);
-                }
-            }
-            System.out.println();
-        }
-
-    }
-
-    private static void printThirdTree() {
-        int[][] tab = new int[6][6];
-        for (int i = 5; i >= 0; i--) {
-            for (int j = 0; j <= 5; j++) {
-                if (i <= j) {
-                    tab[i][j] = 1;
-                    System.out.print(tab[j][i]);
-                }
-
-            }System.out.println();
-        }
-    }
-
-
-    private static void printSkos(int number){
-        int front = 0;
-        for (int i = 0; i < number; i++) {
+    private static void printFirstTree(int number) {
+        for (int row = 0; row <= number; row++) {
             String line = "";
-            for (int j = 0; j < number; j++) {
-                if (j == front) {
+            for (int column = 0; column <= number; column++) {
+                if (row <= column) {
+                    line += " ";
+                } else {
+                    line += "*";
+                }
+            }
+            System.out.println(line);
+        }
+    }
+
+    private static void printSecondTree(int number) {
+        for (int row = 0; row <= number; row++) {
+            String line = "";
+            for (int column = number - 1; column >= 0; column--) {
+                if (row <= column) {
+                    line += "*";
+                } else {
+                    line += " ";
+                }
+            }
+
+            System.out.println(line);
+        }
+    }
+
+    private static void printThirdTree(int number) {
+        for (int row = 0; row <= number; row++) {
+            String line = "";
+            for (int column = number - 1; column >= 0; column--) {
+                if (row <= column) {
+                    line += " ";
+                } else {
+                    line += "*";
+                }
+            }
+            System.out.println(line);
+        }
+    }
+
+    private static void printFourthTree(int number) {
+        for (int row = 0; row <= number; row++) {
+            String line = "";
+            for (int column = 0; column <= number - 1; column++) {
+                if (row <= column) {
+                    line += "*";
+                } else {
+                    line += " ";
+                }
+            }
+            System.out.println(line);
+        }
+    }
+
+
+    private static void printSkos(int number) {
+        int front = 0;
+        for (int row = 0; row < number; row++) {
+            String line = "";
+            for (int column = 0; column < number; column++) {
+                if (column == front) {
                     line += "*";
                 } else {
                     line += " ";
@@ -72,15 +91,29 @@ public class Choinka {
         }
     }
 
+    private static void printO(int number) {
+        int front = 0, back = number - 1;
+        for (int row = 0; row < number; row++) {
+            String line = "";
+            for (int column = 0; column <= number - 1; column++) {
+                if (column == front || column == back || row == front || row == back) {
+                    line += "*";
+                } else {
+                    line += " ";
+                }
+            }
+            System.out.println(line);
+        }
+    }
+
     private static void printX(int number) {
         int front = 0, back = number - 1;
-        for (int i = 0; i < number; i++) {
+        for (int row = 0; row < number; row++) {
             String line = "";
-            for (int j = 0; j < number; j++) {
-                if (j == front || j == back) {
+            for (int column = 0; column < number; column++) {
+                if (column == front || column == back) {
                     line += "*";
-                }
-                else {
+                } else {
                     line += " ";
                 }
             }
